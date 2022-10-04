@@ -10,7 +10,9 @@ declare(strict_types=1);
 
 namespace Mia\GoToLog;
 
+use Mia\GoToLog\Factory\MiaGotoInitFactory;
 use Mia\GoToLog\Factory\MiaGotoServiceFactory;
+use Mia\GoToLog\Handler\GotoGenerateUrlHandler;
 use Mia\GoToLog\Service\MiaGotoService;
 
 class ConfigProvider
@@ -33,7 +35,8 @@ class ConfigProvider
         return [
             'factories' => [
                 MiaGotoService::class => MiaGotoServiceFactory::class,
-                //PaymentHandler::class => PaymentHandlerFactory::class,
+
+                GotoGenerateUrlHandler::class => MiaGotoInitFactory::class
             ],
         ];
     }

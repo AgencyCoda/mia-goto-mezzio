@@ -14,6 +14,6 @@ class MiaGotoServiceFactory
         // Obtenemos configuracion
         $config = $container->get('config')['goto'];
         // creamos libreria
-        return new MiaGotoService($config['client_id'], $config['client_secret']);
+        return new MiaGotoService($config['client_id'], $config['client_secret'], $config['redirect_url']);
     }
 }
