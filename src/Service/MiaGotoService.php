@@ -1,15 +1,15 @@
 <?php
 
-namespace Mia\GoToLog;
+namespace Mia\GoToLog\Service;
 
 use GuzzleHttp\Psr7\Request;
 
-class GoToHelper
+class MiaGotoService
 {
     /**
      * URL de la API
      */
-    const BASE_URL = 'https://api.pushbullet.com/v2/';
+    const BASE_URL = 'https://api.getgo.com/';
     /**
      * Documentation: https://developer.goto.com/
      * @var string
