@@ -32,11 +32,6 @@ class GetMeHandler extends \Mia\Auth\Request\MiaAuthRequestHandler
     {
         // Get Current user
         $user = $this->getUser($request);
-        // Get Provider
-        $provider = MIAProvider::where('user_id', $user->id)->where('provider_type', MIAProvider::PROVIDER_GOTO)->first();
-        if($provider === null){
-            throw new MiaException('Not exist');
-        }
         // Refresh Token
         $data = MiaGotoHelper::refreshToken($this->service, $user);
         // Set Access Token
