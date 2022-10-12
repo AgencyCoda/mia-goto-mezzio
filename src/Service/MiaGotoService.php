@@ -55,6 +55,11 @@ class MiaGotoService
         return $this->generateRequest('POST', 'https://api.getgo.com/G2W/rest/v2/organizers/'.$organizerKey.'/webinars?fromTime=' . $fromTime . '&toTime=' . $toTime . '');
     }
 
+    public function getMe()
+    {
+        return $this->generateRequest('GET', 'https://api.getgo.com/admin/rest/v1/me');
+    }
+
     public function refreshAccessToken($refreshToken)
     {
         $response = $this->guzzle->request('POST', 'https://api.getgo.com/oauth/v2/token', [
