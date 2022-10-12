@@ -12,6 +12,7 @@ namespace Mia\GoToLog;
 
 use Mia\GoToLog\Factory\MiaGotoInitFactory;
 use Mia\GoToLog\Factory\MiaGotoServiceFactory;
+use Mia\GoToLog\Handler\GenerateAccessTokenHandler;
 use Mia\GoToLog\Handler\GotoGenerateUrlHandler;
 use Mia\GoToLog\Service\MiaGotoService;
 
@@ -36,7 +37,8 @@ class ConfigProvider
             'factories' => [
                 MiaGotoService::class => MiaGotoServiceFactory::class,
 
-                GotoGenerateUrlHandler::class => MiaGotoInitFactory::class
+                GotoGenerateUrlHandler::class => MiaGotoInitFactory::class,
+                GenerateAccessTokenHandler::class => MiaGotoInitFactory::class
             ],
         ];
     }
