@@ -52,7 +52,7 @@ class MiaGotoService
 
     public function getAllWebinars($organizerKey, $fromTime = '2020-03-13T10:00:00Z', $toTime = '2020-03-13T10:00:00Z')
     {
-        return $this->generateRequest('POST', 'https://api.getgo.com/G2W/rest/v2/organizers/'.$organizerKey.'/webinars?fromTime=' . $fromTime . '&toTime=' . $toTime . '');
+        return $this->generateRequest('GET', 'https://api.getgo.com/G2W/rest/v2/organizers/'.$organizerKey.'/webinars?fromTime=' . $fromTime . '&toTime=' . $toTime . '');
     }
 
     public function getMe()
