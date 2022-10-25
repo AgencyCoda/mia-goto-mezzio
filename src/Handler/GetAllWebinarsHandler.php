@@ -37,12 +37,12 @@ class GetAllWebinarsHandler extends \Mia\Auth\Request\MiaAuthRequestHandler
         // Set Access Token
         $this->service->setAccessToken($data->access_token);
         // Get params
-        $organizerKey = $this->getParam($request, 'organizer', '');
-        $from = $this->getParam($request, 'from', '2022-01-01T00:00:00Z');
-        $to = $this->getParam($request, 'to', '2022-12-31T00:00:00Z');
+        $organizerKey = $data->organizer_key;
+        $from = $this->getParam($request, 'from', '2021-01-01T00:00:00Z');
+        $to = $this->getParam($request, 'to', '2024-12-31T00:00:00Z');
         // Get All Webinars
         $webinars = $this->service->getAllWebinars($organizerKey, $from, $to);
 
-        return new \Mia\Core\Diactoros\MiaJsonResponse($this->service->getMe());
+        return new \Mia\Core\Diactoros\MiaJsonResponse($webinars);
     }
 }
