@@ -16,6 +16,7 @@ use Mia\GoToLog\Handler\GenerateAccessTokenHandler;
 use Mia\GoToLog\Handler\GetAllWebinarsHandler;
 use Mia\GoToLog\Handler\GetMeHandler;
 use Mia\GoToLog\Handler\GotoGenerateUrlHandler;
+use Mia\GoToLog\Handler\IsConnectedHandler;
 use Mia\GoToLog\Service\MiaGotoService;
 
 class ConfigProvider
@@ -42,7 +43,8 @@ class ConfigProvider
                 GotoGenerateUrlHandler::class => MiaGotoInitFactory::class,
                 GenerateAccessTokenHandler::class => MiaGotoInitFactory::class,
                 GetMeHandler::class => MiaGotoInitFactory::class,
-                GetAllWebinarsHandler::class => MiaGotoInitFactory::class
+                GetAllWebinarsHandler::class => MiaGotoInitFactory::class,
+                IsConnectedHandler::class => MiaGotoInitFactory::class
             ],
         ];
     }
