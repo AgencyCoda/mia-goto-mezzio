@@ -11,6 +11,7 @@ class MiaGotoService
      */
     const BASE_URL = 'https://api.getgo.com/';
     const OATUH_BASE_URL = 'https://authentication.logmeininc.com/oauth/';
+    const BASE_URL_WEBINARS = 'https://api.getgo.com/G2W/rest/v2/';
     /**
      * Documentation: https://developer.goto.com/
      * @var string
@@ -52,7 +53,37 @@ class MiaGotoService
 
     public function getAllWebinars($organizerKey, $fromTime = '2020-03-13T10:00:00Z', $toTime = '2020-03-13T10:00:00Z')
     {
-        return $this->generateRequest('GET', 'https://api.getgo.com/G2W/rest/v2/organizers/'.$organizerKey.'/webinars?fromTime=' . $fromTime . '&toTime=' . $toTime . '');
+        return $this->generateRequest('GET', self::BASE_URL_WEBINARS . 'organizers/'.$organizerKey.'/webinars?fromTime=' . $fromTime . '&toTime=' . $toTime . '');
+    }
+
+    public function getWebinar($organizerKey, $webinarKey)
+    {
+        return $this->generateRequest('GET', self::BASE_URL_WEBINARS . 'organizers/'.$organizerKey.'/webinars/' . $webinarKey);
+    }
+
+    public function getAllAttendes($organizerKey, $webinarKey)
+    {
+        return $this->generateRequest('GET', self::BASE_URL_WEBINARS . 'organizers/'.$organizerKey.'/webinars/' . $webinarKey . '/attendees');
+    }
+
+    public function getAllRegistrants($organizerKey, $webinarKey)
+    {
+        return $this->generateRequest('GET', self::BASE_URL_WEBINARS . 'organizers/'.$organizerKey.'/webinars/' . $webinarKey . '/registrants');
+    }
+
+    public function createWebhookSecretKey()
+    {
+        return $this->generateRequest('POST', self::BASE_URL_WEBINARS . 'webhooks/secretkey');
+    }
+
+    public function createWebhook($callbackUrl, $eventName, $eventVersion, $product)
+    {
+        return $this->generateRequest('POST', self::BASE_URL_WEBINARS . 'webhooks', [
+            'callbackUrl' => $callbackUrl,
+            'eventName' => $eventName,
+            'eventVersion' => $eventVersion,
+            'product' => $product
+        ]);
     }
 
     public function getMe()
