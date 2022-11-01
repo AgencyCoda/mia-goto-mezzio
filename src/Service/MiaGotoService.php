@@ -86,6 +86,24 @@ class MiaGotoService
         ]);
     }
 
+    public function activateWebhook($webhookKey, $callbackUrl)
+    {
+        return $this->generateRequest('PUT', self::BASE_URL_WEBINARS . 'webhooks', [
+            'callbackUrl' => $callbackUrl,
+            'webhookKey' => $webhookKey,
+            'state' => 'ACTIVE'
+        ]);
+    }
+
+    public function createNewUserSubscription($webhookKey, $callbackUrl)
+    {
+        return $this->generateRequest('PUT', self::BASE_URL_WEBINARS . 'userSubscriptions', [
+            'callbackUrl' => $callbackUrl,
+            'webhookKey' => $webhookKey,
+            'userSubscriptionState' => 'ACTIVE'
+        ]);
+    }
+
     public function getMe()
     {
         return $this->generateRequest('GET', 'https://api.getgo.com/admin/rest/v1/me');
