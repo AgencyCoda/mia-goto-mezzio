@@ -71,6 +71,18 @@ class MiaGotoService
         return $this->generateRequest('GET', self::BASE_URL_WEBINARS . 'organizers/'.$organizerKey.'/webinars/' . $webinarKey . '/registrants');
     }
 
+    public function createRegistrant($organizerKey, $webinarKey, $firstname, $lastname, $email, $country, $organization, $jobTitle)
+    {
+        return $this->generateRequest('POST', self::BASE_URL_WEBINARS . 'organizers/'.$organizerKey.'/webinars/' . $webinarKey . '/registrants', [
+            'firstName' => $firstname,
+            'lastName' => $lastname,
+            'email' => $email,
+            'country' => $country,
+            'organization' => $organization,
+            'jobTitle' => $jobTitle
+        ]);
+    }
+
     public function createWebhookSecretKey()
     {
         return $this->generateRequest('POST', self::BASE_URL_WEBINARS . 'webhooks/secretkey');
