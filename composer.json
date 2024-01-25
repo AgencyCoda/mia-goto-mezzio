@@ -9,10 +9,10 @@
         "homepage": "https://agencycoda.com"
     }],
     "require": {
-        "php": "^7.3",
-        "agencycoda/mia-core-mezzio": "dev-main",
-        "agencycoda/mia-eloquent-mezzio": "dev-main",
-        "agencycoda/mia-auth-mezzio": "dev-main",
+        "php": "^8.1",
+        "agencycoda/mia-core-mezzio": "v2.x-dev",
+        "agencycoda/mia-eloquent-mezzio": "v2.x-dev",
+        "agencycoda/mia-auth-mezzio": "v2.x-dev",
         "guzzlehttp/guzzle": "^7.3"
     },
     "autoload": {
